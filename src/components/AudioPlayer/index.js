@@ -2,6 +2,7 @@ import React, {useState, Fragment} from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import { MdPlayArrow, MdPause, MdSkipPrevious, MdSkipNext } from 'react-icons/md';
 import './index.css';
+import {Title} from './styles'
 
 export const AudioPlayer = ({song, id, imgAlbun, title, author, audioInfo}) => {
   const [paused, setPaused] = useState(false);
@@ -31,7 +32,7 @@ export const AudioPlayer = ({song, id, imgAlbun, title, author, audioInfo}) => {
       {!paused &&
         <div className="buffer-container">
           <div>
-            <h4>{songs.title}</h4>
+            <Title>{songs.title}</Title>
             <p>{songs.author}</p>
           </div>
         </div>

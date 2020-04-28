@@ -13,15 +13,6 @@
   transition: 0.3s ease top;
 }
 
-.buffer-container h4 {
-  color: #04a1fb;
-  font-size: 17px;
-  font-weight: bold;
-  text-align: initial;
-  margin: 20px 20px 10px 130px;
-  font-size: 0.8em;
-}
-
 .buffer-container p {
   color: #acaebd;
   text-align: initial;
