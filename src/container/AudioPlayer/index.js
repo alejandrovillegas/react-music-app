@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import {AudioPlayer} from '../../components/AudioPlayer'
 
-const DEFAULT_SONG = 'https://raw.githubusercontent.com/justinmc/react-audio-player/master/example/files/George_Gershwin_playing_Rhapsody_in_Blue.ogg';
-function useCategoriesData() {
+function useSongsData() {
 	const [ audioInfo, setCategories ] = useState([]);
 	const [ loading, setLoading ] = useState(false);
 
@@ -19,12 +18,6 @@ function useCategoriesData() {
 }
 
 export const AudioPlayerContainer = () => {
-  // const [ audioInfo, setAudioInfo ] = useState({
-  //   song : DEFAULT_SONG,
-  //   show: true
-  // });
-  const { audioInfo, loading } = useCategoriesData();
-  console.log('container', audioInfo)
-
+  const { audioInfo, loading } = useSongsData();
   return < AudioPlayer {...audioInfo[0]} />  
 }
