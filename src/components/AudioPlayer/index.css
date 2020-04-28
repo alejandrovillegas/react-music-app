@@ -5,6 +5,11 @@
   width: 80%;
   height: 100px;
 }
+
+.buffer-container {
+  background-color: #003f63;
+  width: 75%;
+}
 .audio {
   position: relative;
   z-index: 1;
@@ -29,4 +34,38 @@
   height: 0;
   border: 8px solid transparent;
   border-left: 12px solid #555;
+}
+
+.logo {
+  margin-right: 70%;
+  position: relative;
+}
+
+.logo-image {
+  position: absolute;
+  top: -30px;
+  width: 115px;
+  height: 115px;
+  margin-left: 40px;
+  -webkit-transform: rotateZ(0);
+  transform: rotateZ(0);
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 10px #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: App-logo-spin infinite 3s linear;
+}
+
+.buttons-ctrl button {
+  height: 100%;
+  background-color: white;
+  border: none;
+  width: 100px;
+  margin: 0 5px;
+}
+
+.buttons-ctrl button:hover {
+  background-color: #00a2ff;
+  color: white;
 }
