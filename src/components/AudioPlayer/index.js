@@ -3,23 +3,27 @@ import ReactAudioPlayer from 'react-audio-player';
 import { MdPlayArrow, MdPause, MdSkipPrevious, MdSkipNext } from 'react-icons/md';
 import './index.css';
 
-export const AudioPlayer = ({song, id, imgAlbun, title, author}) => {
+export const AudioPlayer = ({song, id, imgAlbun, title, author, audioInfo}) => {
   const [paused, setPaused] = useState(false);
-  const audioControl = document.getElementsByClassName('react-audio-player ')[0];
+  const [actualSong, setactualSong] = useState(0);
+  const songs = audioInfo[actualSong] || {}
   const pause = () => {
-    audioControl.pause()
+    document.getElementsByClassName('react-audio-player ')[0].pause()
     setPaused(true)
   }
+  
   const play = () => {
-    audioControl.play()
+    document.getElementsByClassName('react-audio-player ')[0].play()
     setPaused(false)
   }
   const next = () => {
-    console.log('next')
+    let nextsong = actualSong + 1
+    setactualSong(nextsong)
   }
 
   const back = () => {
-    console.log('back')
+    let prevsong = actualSong - 1
+    setactualSong(prevsong)
   }
   const animationIcon = paused ? 'image-pause' : 'image-play';
   return (
@@ -27,16 +31,15 @@ export const AudioPlayer = ({song, id, imgAlbun, title, author}) => {
       {!paused &&
         <div className="buffer-container">
           <div>
-            <h4>{title}</h4>
-            <p>{author}</p>
-            <span>{audioControl && audioControl.currentTime}</span>
+            <h4>{songs.title}</h4>
+            <p>{songs.author}</p>
           </div>
         </div>
       }
       <div className="music-player">
       <div className="logo">
         <div className={`logo-image ${animationIcon}`}>
-          <img src={imgAlbun} />
+          <img alt={songs.title} src={songs.imgAlbun} />
         </div>
       </div>
       <div className="buttons-ctrl">
@@ -58,8 +61,7 @@ export const AudioPlayer = ({song, id, imgAlbun, title, author}) => {
         </button>
       </div>
       < ReactAudioPlayer
-        onPause={(e)=> console.log(this, e)}
-        src={song}
+        src={songs.song}
         autoPlay
       />  
     </div>

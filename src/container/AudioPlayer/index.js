@@ -13,11 +13,10 @@ function useSongsData() {
 			setLoading(false);
 		});
 	}, []);
-
 	return { audioInfo, loading };
 }
 
 export const AudioPlayerContainer = () => {
   const { audioInfo, loading } = useSongsData();
-  return < AudioPlayer {...audioInfo[0]} />  
+  return !loading && < AudioPlayer audioInfo={audioInfo} />  
 }
